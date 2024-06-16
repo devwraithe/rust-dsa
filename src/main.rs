@@ -1,5 +1,6 @@
 // Import the binary search function from the binary search module
 use data_structure_algorithms::binary_search::{binary_search, delete, insert};
+use data_structure_algorithms::graph::Graph;
 
 fn main() {
     // Define a sorted array of integers
@@ -39,4 +40,17 @@ fn main() {
 
     let del_result_not_found = delete(&mut vec_del, 6);
     println!("Attempt to delete non-existent element, Success: {}", del_result_not_found);
+
+    // Testing the graph functions
+    let mut graph = Graph::new();
+    graph.add_node(1);
+    graph.add_node(2);
+    graph.add_node(3);
+    graph.add_edge(1, 2);
+    graph.add_edge(2, 3);
+    graph.add_edge(1, 3);
+
+    println!("Graph traversal starting from node 1: {:?}", graph.traverse(1));
+    println!("Graph traversal starting from node 2: {:?}", graph.traverse(2));
+
 }
